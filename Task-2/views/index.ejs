@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Registration Form</h2>
+
+    <form action="/submit" method="POST">
+
+        <input type="text" name="name" placeholder="Enter Name" required>
+
+        <input type="email" name="email" placeholder="Enter Email" required>
+
+        <input type="password" name="password" placeholder="Enter Password" required>
+
+        <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+
+        <button type="submit">Register</button>
+
+    </form>
+
+    <p id="error" style="color:red;"></p>
+
+    <script>
+const form = document.querySelector("form");
+
+form.addEventListener("submit", function(e){
+
+    const password =
+    document.querySelector('input[name="password"]').value;
+
+    const confirmPassword =
+    document.querySelector('input[name="confirmPassword"]').value;
+
+    if(password !== confirmPassword){
+        e.preventDefault();
+        document.getElementById("error").innerText =
+        "Passwords do not match";
+    }
+
+});
+</script>
+
+
+</div>
+
+</body>
+</html>
